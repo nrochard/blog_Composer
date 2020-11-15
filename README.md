@@ -21,6 +21,10 @@ In this blog you can :
     
 2.  Create a .env and put your informations
 
+3. Activate your MAMP/WAMP
+
+4. Export the DB in PhpMyAdmin
+
 ## Start
 
     ```bash
