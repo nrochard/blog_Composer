@@ -1,0 +1,25 @@
+{
+    "name": "noemierochard/env",
+    "authors": [
+        {
+            "name": "Noemie Rochard",
+            "email": "rochard.noemie@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.2",
+        "nesbot/carbon": "^2.41",
+        "filp/whoops": "^2.9"
+    },
+    "scripts": {
+        "serve" : "php -S 0.0.0.0:8088 -t public/"
+    },
+    "autoload": {
+        "files": [
+          "app/models/model.php",
+          "app/models/post.php",
+          "app/helpers/view.php",
+          "app/controllers/post.php"
+        ]
+    }
+}

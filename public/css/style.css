@@ -1,0 +1,40 @@
+/* GÉNÉRAL */
+
+body
+{
+    font-family: 'Dosis', sans-serif;
+}
+
+.container_content{
+    margin-top: 60px;
+}
+.title_form{
+    margin-top: 50px;
+}
+
+/* PAGE AFFICHER TOUT LES ARTICLES */
+
+.card{
+    margin: 20px auto;
+}
+
+small{
+    font-size: 15px;
+}
+.icon_post{
+    width: 25px;
+    margin: 0 auto;
+    display: block;
+}
+
+.delete_article, .delete_article:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.tagline{
+    font-family: 'Amatic SC', cursive;
+    font-size: 25px;
+}
