@@ -27,7 +27,7 @@ In this blog you can :
 
 ## Start
 
-    ```bash
+
     $ composer run serve
-    ```
+
 
