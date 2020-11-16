@@ -10,9 +10,17 @@
 
                 <!-- Gestion des messages de confirmation ou d'erreur pour la suppression d'un article -->
                 <?php
-                if(isset($_SESSION['messages'])): ?>
-                    <div class="alert alert-primary mt-4" role="alert">
-                        <?php foreach($_SESSION['messages'] as $message): ?>
+                if(isset($_SESSION['success'])): ?>
+                    <div class="alert alert-success mt-4" role="alert">
+                        <?php foreach($_SESSION['success'] as $message): ?>
+                            <?= $message ?><br>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <?php
+                if(isset($_SESSION['error'])): ?>
+                    <div class="alert alert-danger mt-4" role="alert">
+                        <?php foreach($_SESSION['error'] as $message): ?>
                             <?= $message ?><br>
                         <?php endforeach; ?>
                     </div>

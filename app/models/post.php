@@ -2,7 +2,9 @@
 
 use Carbon\Carbon;
 
-function getAllPosts(){
+
+function getAllPosts()
+{
 
     $db = dbConnect();
 
@@ -12,20 +14,24 @@ function getAllPosts(){
     return($posts);
 }
 
-function getPostById($id){
+function getPostById($id)
+{
 
     $db = dbConnect();
     $statement = $db->prepare('SELECT * FROM posts WHERE id = :id');
     $statement->execute(['id' => $_GET['id']]);
     $post = $statement->fetchObject();
 
+    print_r($post->created_at);
+
     if ($post)
-        $post->created_at = Carbon::parse($post->created_at)->locale('fr_FR')->diffForHumans();
+        $post->created_at = Carbon::parse($post->created_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans();
 
     return($post);
 }
 
-function deleteArticle($id){
+function deleteArticle($id)
+{
     $db = dbConnect();
 
     $query = $db->prepare('DELETE FROM posts WHERE id = ?');
@@ -34,7 +40,8 @@ function deleteArticle($id){
     return $result;
 }
 
-function storeArticle($data){
+function storeArticle($data)
+{
 
     $db = dbConnect();
 
@@ -47,7 +54,8 @@ function storeArticle($data){
     return $result;
 }
 
-function updateArticle($id, $data){
+function updateArticle($id, $data)
+{
 
     $db = dbConnect();
 

@@ -17,6 +17,12 @@ require __DIR__ . "/../app/router.php";
 if(isset($_SESSION['messages'])){
     unset($_SESSION['messages']);
 }
+if(isset($_SESSION['error'])){
+    unset($_SESSION['error']);
+}
+if(isset($_SESSION['success'])){
+    unset($_SESSION['success']);
+}
 
 //Suppression des informations du formulaire stockées
 if(isset($_SESSION['old_inputs'])){

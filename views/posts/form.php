@@ -10,7 +10,7 @@
                 <!-- Gestion d'erreur si aucun article en DB -->
                 <?php
                 if(isset($_SESSION['messages'])): ?>
-                    <div class="alert alert-primary mt-4" role="alert">
+                    <div class="alert alert-danger mt-4" role="alert">
                         <?php foreach($_SESSION['messages'] as $message): ?>
                             <?= $message ?><br>
                         <?php endforeach; ?>
@@ -29,7 +29,7 @@
                         <small id="name" class="form-text text-muted">Champs obligatoire.</small>
                     </div>
                     <div class="mt-5">
-                        <button type="submit" class="btn btn-primary btn-lg">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary btn-lg mb-4">Enregistrer</button>
                     </div>
                 </form>
             </div>

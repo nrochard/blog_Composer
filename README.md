@@ -1,5 +1,5 @@
 # blog_Composer
-A project about the creatio of a blog with Composer and Boostrap.
+A project about the creatio of a blog with Composer and Boostrap. It made for DESKTOP and MOBILE.
 
 ## What it does
 
@@ -19,14 +19,13 @@ In this blog you can :
     $ composer install
     ```
     
-2.  Create a .env and put your informations
+2. Create a .env and put your informations. You can help you with the .env.example.
 
-3. Activate your MAMP/WAMP
+3. Activate your MAMP/WAMP for the database.
 
 4. Export the DB in PhpMyAdmin
 
 ## Start
-
 
     $ composer run serve
 

@@ -35,8 +35,8 @@ function postShow()
 }
 
 // Suppression d'un article
-function postDestroy(){
-    
+function postDestroy()
+{
     if (empty($_GET['id'])) {
         http_response_code(400);
         echo "<html><body>Bad request</body></html>";
@@ -52,10 +52,10 @@ function postDestroy(){
     }
 
     if($deletedArticle){
-        $_SESSION['messages'][] = 'Article supprimé !';
+        $_SESSION['success'][] = 'Article supprimé !';
     }
     else{
-        $_SESSION['messages'][] = 'Erreur lors de la suppression. ';
+        $_SESSION['error'][] = 'Erreur lors de la suppression. ';
     }
 
     header('Location:/articles');
@@ -63,12 +63,14 @@ function postDestroy(){
 }
 
 // Affichage du formulaire de création d'un article
-function postCreate(){
+function postCreate()
+{
     require __DIR__ . "/../../views/posts/form.php";
 }
 
 // Création d'un article
-function postStore(){
+function postStore()
+{
     if(empty($_POST['title']) || empty($_POST['body'])){
         if(empty($_POST['title'])){
             $_SESSION['messages'][] = 'Le champ titre est obligatoire !';
@@ -82,8 +84,13 @@ function postStore(){
     }
     else{
         $resultAdd = storeArticle($_POST);
+        if($resultAdd){
+            $_SESSION['success'][] = 'Article enregistré ! !';
+        }
+        else{
+            $_SESSION['error'][] = 'Erreur lors de l\'enregistrement.';
+        }
 
-        $_SESSION['messages'][] = $resultAdd ? 'Article enregistré !' : "Erreur lors de l'enregistrement.";
 
         header('Location:/articles');
         exit;
@@ -91,8 +98,8 @@ function postStore(){
 }
 
 // Affichage du formulaire de modification d'un article
-function postEdit(){
-
+function postEdit()
+{
     if (empty($_GET['id'])) {
         http_response_code(400);
         echo "<html><body>Bad request</body></html>";
@@ -100,7 +107,6 @@ function postEdit(){
     }
 
     $post = getPostById($_GET['id']);
-
 
     if (!$post) {
         http_response_code(404);
@@ -112,13 +118,14 @@ function postEdit(){
 }
 
 // Modication d'un article
-function postUpdate(){
+function postUpdate()
+{
     if(empty($_POST['title']) || empty($_POST['body'])){
         if(empty($_POST['title'])){
-             $_SESSION['messages'][] = 'Le champ titreeeee est obligatoire !';
+             $_SESSION['messages'][] = 'Le champ titre est obligatoire !';
         }
         else if(empty($_POST['body'])){
-            $_SESSION['messages'][] = 'Le champ contenuuuuu est obligatoire !';
+            $_SESSION['messages'][] = 'Le champ contenu est obligatoire !';
         }
         $_SESSION['old_inputs'] = $_POST;
         header('Location:/articles/edit?id='.$_GET['id']);
@@ -126,10 +133,13 @@ function postUpdate(){
         }
     else{
         $result = updateArticle($_GET['id'], $_POST);
-        $_SESSION['messages'][] = $result ? 'Article mis à jour' : 'Erreur lors de la mise à jour.';
+        if($result){
+            $_SESSION['success'][] = 'Article mis à jour!';
+        }
+        else{
+            $_SESSION['error'][] = 'Erreur lors de la mise à jour.';
+        }
        header('Location:/articles/show?id='.$_GET['id']);
        exit;
     }
 }
-
-
