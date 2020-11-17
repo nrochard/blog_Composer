@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
 /* GÉNÉRAL */
 
 * {-moz-box-sizing: border-box; box-sizing: border-box;}
@@ -7,9 +9,18 @@ html {
     font-family: 'Dosis', sans-serif;
 }
 
+nav{
+    font-family: 'Dosis', sans-serif;
+}
+
+footer{
+    font-family: 'Dosis', sans-serif;
+}
+
 .container_content{
     margin-top: 60px;
     min-height: calc(100vh - 170px);
+    font-family: 'Dosis', sans-serif;
 }
 .title_form{
     margin-top: 50px;
