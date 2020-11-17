@@ -8,7 +8,6 @@
                 <h1 class="my-4">Formulaire</h1></h1> 
 
                 <!-- Gestion d'erreur si aucun article en DB -->
-                <!-- test -->
                 <?php
                 if(isset($_SESSION['messages'])): ?>
                     <div class="alert alert-danger mt-4" role="alert">
