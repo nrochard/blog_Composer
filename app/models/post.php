@@ -35,9 +35,6 @@ function deleteArticle($id)
     $query = $db->prepare('DELETE FROM posts WHERE id = ?');
     $result = $query->execute([$id]);
 
-    print_r($result);
-    die();
-
     return $result;
 }
 
