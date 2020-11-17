@@ -19,7 +19,7 @@ function postShow()
 {
     if (empty($_GET['id'])) {
         http_response_code(400);
-        require __DIR__ . "/../../views/layouts/400.php";
+        require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
@@ -27,7 +27,7 @@ function postShow()
 
     if (!$post) {
         http_response_code(404);
-        require __DIR__ . "/../../views/layouts/400.php";
+        require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
@@ -39,7 +39,7 @@ function postDestroy()
 {
     if (empty($_GET['id'])) {
         http_response_code(400);
-        require __DIR__ . "/../../views/layouts/400.php";
+        require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
@@ -47,7 +47,7 @@ function postDestroy()
 
     if (!$deletedArticle) {
         http_response_code(404);
-        require __DIR__ . "/../../views/layouts/400.php";
+        require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
@@ -102,7 +102,7 @@ function postEdit()
 {
     if (empty($_GET['id'])) {
         http_response_code(400);
-        require __DIR__ . "/../../views/layouts/400.php";
+        require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
@@ -110,7 +110,7 @@ function postEdit()
 
     if (!$post) {
         http_response_code(404);
-        require __DIR__ . "/../../views/layouts/400.php";
+        require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
