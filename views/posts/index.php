@@ -27,27 +27,6 @@
                         Posté le <?= $post->created_at_fr?> by <span>Boostrap</span>
                     </div>
                 </div>
-
-                <!-- Modal Boostrap -->
-                <div class="modal fade" id="exampleModal<?=$post->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Suppression de <?= htmlentities($post->title)?></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Confirmez vous la supression de cette article ?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                <button type="button" class="btn btn-success"><a class="delete_article" href="/articles/delete?id=<?=$post->id?>">Confimer</a></button>
-                            </div>
-                        </div>
-                     </div>
-                </div>
                 <?php 
                 $i++;
                 if ($i == 3)
@@ -99,7 +78,7 @@
             <div class="card my-4">
                 <h5 class="card-header">À propos</h5>
                 <div class="card-body">
-                Cette création de blog à pour objectif de nous initier à l'utilisation de Composer et du modèle MVC.
+                Cette création de blog a pour objectif de nous initier à l'utilisation de Composer et du modèle MVC.
                 </div>
             </div>
             </div>

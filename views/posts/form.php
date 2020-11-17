@@ -78,7 +78,7 @@
                 <div class="card my-4">
                     <h5 class="card-header">À propos</h5>
                     <div class="card-body">
-                    Cette création de blog à pour objectif de nous initier à l'utilisation de Composer et du modèle MVC.
+                    Cette création de blog a pour objectif de nous initier à l'utilisation de Composer et du modèle MVC.
                     </div>
                 </div>
             </div>
