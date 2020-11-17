@@ -23,7 +23,7 @@ In this blog you can :
 
 3. Activate your MAMP/WAMP for the database.
 
-4. Export the DB in PhpMyAdmin
+4. Export the files' /db/posts.sql in PhpMyAdmin
 
 ## Start
 
