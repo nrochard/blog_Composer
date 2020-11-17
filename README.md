@@ -1,5 +1,5 @@
 # blog_Composer
-A project about the creatio of a blog with Composer and Boostrap. It made for DESKTOP and MOBILE.
+A project about the creation of a blog with Composer and Boostrap. It made for DESKTOP and MOBILE.
 
 ## What it does
 
