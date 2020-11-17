@@ -19,7 +19,7 @@ function postShow()
 {
     if (empty($_GET['id'])) {
         http_response_code(400);
-        echo "<html><body>Bad request</body></html>";
+        require __DIR__ . "/../../views/layouts/400.php";
         return;
     }
 
@@ -27,7 +27,7 @@ function postShow()
 
     if (!$post) {
         http_response_code(404);
-        echo "<html><body>Post not found</body></html>";
+        require __DIR__ . "/../../views/layouts/400.php";
         return;
     }
 
@@ -39,7 +39,7 @@ function postDestroy()
 {
     if (empty($_GET['id'])) {
         http_response_code(400);
-        echo "<html><body>Bad request</body></html>";
+        require __DIR__ . "/../../views/layouts/400.php";
         return;
     }
 
@@ -47,7 +47,7 @@ function postDestroy()
 
     if (!$deletedArticle) {
         http_response_code(404);
-        echo "<html><body>Post not found</body></html>";
+        require __DIR__ . "/../../views/layouts/400.php";
         return;
     }
 
@@ -102,7 +102,7 @@ function postEdit()
 {
     if (empty($_GET['id'])) {
         http_response_code(400);
-        echo "<html><body>Bad request</body></html>";
+        require __DIR__ . "/../../views/layouts/400.php";
         return;
     }
 
@@ -110,7 +110,7 @@ function postEdit()
 
     if (!$post) {
         http_response_code(404);
-        echo "<html><body>Post not found</body></html>";
+        require __DIR__ . "/../../views/layouts/400.php";
         return;
     }
 
