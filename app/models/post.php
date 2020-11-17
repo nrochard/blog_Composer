@@ -22,8 +22,6 @@ function getPostById($id)
     $statement->execute(['id' => $_GET['id']]);
     $post = $statement->fetchObject();
 
-    print_r($post->created_at);
-
     if ($post)
         $post->created_at = Carbon::parse($post->created_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans();
 

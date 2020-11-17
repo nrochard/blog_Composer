@@ -19,12 +19,12 @@
 
                 <form  method="post" enctype="multipart/form-data" action="<?= isset($post) ? '/articles/edit?id='. $_GET['id'] : '/articles' ?>">
                     <div class="form-group">
-                        <label for="title">Titre</label>
+                        <label for="title">Titre :</label>
                         <input type="text" class="form-control" name="title" id="title" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['title'] : '' ?><?= isset($post) ? $post->title : ''?>">
                         <small id="name" class="form-text text-muted">Champs obligatoire.</small>
                     </div>
                     <div class="form-group">
-                        <label for="body">Contenu</label></label>
+                        <label for="body">Contenu :</label></label>
                         <textarea class="form-control" id="body" name="body" rows="5"><?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['body'] : '' ?><?= isset($post) ? $post->body : ''?></textarea>
                         <small id="name" class="form-text text-muted">Champs obligatoire.</small>
                     </div>
