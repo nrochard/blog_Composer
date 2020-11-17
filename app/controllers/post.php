@@ -44,6 +44,9 @@ function postDestroy()
     }
 
     $deletedArticle =  deleteArticle($_GET['id']); 
+    
+    print_r($deletedArticle);
+    die();
 
     if (!$deletedArticle) {
         http_response_code(404);

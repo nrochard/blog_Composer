@@ -35,6 +35,9 @@ function deleteArticle($id)
     $query = $db->prepare('DELETE FROM posts WHERE id = ?');
     $result = $query->execute([$id]);
 
+    print_r($result);
+    die();
+
     return $result;
 }
 
@@ -57,12 +60,16 @@ function updateArticle($id, $data)
 
     $db = dbConnect();
 
-    $query = $db->prepare('UPDATE posts SET title = ?, body = ? WHERE id = ?');
+    date_default_timezone_set('Europe/Paris');
+    $date = date('y-m-d h:i:s');
+
+    $query = $db->prepare('UPDATE posts SET title = ?, body = ?, updated_at = ? WHERE id = ?');
 
     $result = $query->execute(
         [
             $data['title'],
             $data['body'],
+            $date,
             $id,
         ]
     );
