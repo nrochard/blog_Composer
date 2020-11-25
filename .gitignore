@@ -3,3 +3,7 @@ composer.lock
 /vendor
 
 .env
+
+/db/migrations
+
+phinx.php

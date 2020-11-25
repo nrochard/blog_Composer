@@ -24,6 +24,9 @@ function getPostById($id)
 
     if ($post)
         $post->created_at = Carbon::parse($post->created_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans();
+    
+    $Parsedown = new Parsedown();
+    $post->body = Parsedown::instance()->text($post->body); 
 
     return($post);
 }
@@ -72,6 +75,18 @@ function updateArticle($id, $data)
     );
 
     return($result);
+}
+
+function postGeneratedArticle($title, $body){
+    $db = dbConnect();
+
+    $query = $db->prepare("INSERT INTO posts (title, body) VALUES(:title, :body)");
+    $result = $query->execute([
+        'title' => $title,
+        'body' => $body,
+    ]);
+
+    return $result;
 }
 
 ?>

@@ -144,3 +144,25 @@ function postUpdate()
        exit;
     }
 }
+
+// Ajouter d'un article généré aléatoirement
+function postGenerate(){
+    $faker = Faker\Factory::create();
+
+    $title = $faker->text($maxNbChars = 255);
+    $body = $faker->paragraph($nbSentences = 15, $variableNbSentences = true);
+
+    $result = postGeneratedArticle($title, $body);
+
+    if($result){
+        $_SESSION['success'][] = 'Un article a été généré aléatoirement  !';
+        header('Location:/articles');
+        exit;
+    }
+    else{
+        $_SESSION['error'][] = 'Un problème est survenu lors de la création de l\'article !';
+        header('Location:/articles');
+        exit;
+    }
+
+}

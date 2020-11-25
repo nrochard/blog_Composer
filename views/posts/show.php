@@ -32,7 +32,7 @@
                 <!-- Boucle pour récupérer les informations de tout les articles -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <p class="card-text"><?=htmlentities($post->body)?></p></p>                  
+                        <p class="card-text"><?=$post->body?></p></p>                  
                         <a href="/articles/edit?id=<?=$post->id?>" class="btn btn-warning"><img class="icon_post" src="/img/edit.svg"></a>
                         <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?=$post->id?>"><img class="icon_post" src="/img/delete.svg"></a>   
                     </div>

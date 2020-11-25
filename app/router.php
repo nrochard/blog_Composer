@@ -17,13 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     elseif ($uri == "/articles/create") {
         postCreate();
-    } 
+    }
+    elseif ($uri == "/articles/generate") {
+        postGenerate();
+    }
     elseif ($uri == "/articles/edit" and isset($_GET['id'])) {
         postEdit();
     } 
     else {
         http_response_code(404);
-        echo "<html><body>Page not found</body></html>";
+        require __DIR__ . "/../views/layouts/400.html";
         return;
     }
 } 
@@ -37,6 +40,6 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 else {
     http_response_code(405);
-    echo "<html><body>Method not allowed</body></html>";
+    require __DIR__ . "/../views/layouts/400.html";
     return;
 }
