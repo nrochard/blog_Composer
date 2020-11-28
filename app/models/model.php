@@ -4,8 +4,10 @@ use Noodlehaus\Config;
 
 function dbConnect()
 {
+    $config =  new Config("../config/database.php");
+
     try{
-        $db = new PDO("{$_ENV['DB_CONNECTION']}:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']}", $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
+        $db = new PDO("{$config->get('database')['connection']}:host={$config->get('database')['host']};dbname={$config->get('database')['name']}", $config->get('database')['user'], $config->get('database')['password']);
     }
     catch (Exception $exception) //$e contiendra les éventuels messages d’erreur
     {
