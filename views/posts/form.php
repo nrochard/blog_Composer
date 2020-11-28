@@ -16,8 +16,8 @@
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-
-                <form  method="post" enctype="multipart/form-data" action="<?= isset($post) ? '/articles/edit?id='. $_GET['id'] : '/articles' ?>">
+           
+                <form  method="post" enctype="multipart/form-data" action="<?= isset($post) ? '/articles/edit/'. $post->id : '/articles' ?>">
                     <?php if(isset($post)) : ?>
                         <input name="_method" type="hidden" value="PUT"/>
                     <?php endif;?>

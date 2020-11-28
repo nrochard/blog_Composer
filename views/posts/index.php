@@ -21,7 +21,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="card-title"><?= htmlentities($post->title)?></h2>
-                        <a href="/articles/show?id=<?=$post->id?>" class="btn btn-primary">Lire l'article</a>                     
+                        <a href="/articles/show/<?=$post->id?>" class="btn btn-primary">Lire l'article</a>                     
                     </div>
                     <div class="card-footer text-muted">
                         Posté le <?= $post->created_at_fr?> by <span>Boostrap</span>

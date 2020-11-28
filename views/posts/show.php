@@ -33,7 +33,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <p class="card-text"><?=$post->body?></p></p>                  
-                        <a href="/articles/edit?id=<?=$post->id?>" class="btn btn-warning"><img class="icon_post" src="/img/edit.svg"></a>
+                        <a href="/articles/edit/<?=$post->id?>" class="btn btn-warning"><img class="icon_post" src="/img/edit.svg"></a>
                         <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<?=$post->id?>"><img class="icon_post" src="/img/delete.svg"></a>   
                     </div>
                     
@@ -57,7 +57,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                <form method="POST" action="/articles/delete?id=<?=$post->id?>">
+                                <form method="POST" action="/articles/delete/<?=$post->id?>">
                                     <input name="_method" type="hidden" value="DELETE" />
                                     <button class="btn btn-success" type="submit">Confirmer</button>
                                 </form>

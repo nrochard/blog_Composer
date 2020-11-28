@@ -19,15 +19,14 @@ function getPostById($id)
 
     $db = dbConnect();
     $statement = $db->prepare('SELECT * FROM posts WHERE id = :id');
-    $statement->execute(['id' => $_GET['id']]);
+    $statement->execute(['id' => $id]);
     $post = $statement->fetchObject();
 
-    if ($post)
+    if ($post){
         $post->created_at = Carbon::parse($post->created_at, 'Europe/Paris')->locale('fr_FR')->diffForHumans();
-    
-    $Parsedown = new Parsedown();
-    $post->body = Parsedown::instance()->text($post->body); 
-
+        $Parsedown = new Parsedown();
+        $post->body = Parsedown::instance()->text($post->body); 
+    }
     return($post);
 }
 

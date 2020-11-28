@@ -19,15 +19,15 @@ function postIndex()
 }
 
 // Affichage d'un article
-function postShow()
+function postShow($id)
 {
-    if (empty($_GET['id'])) {
+    if (empty($id)) {
         http_response_code(400);
         require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
-    $post = getPostById($_GET['id']);
+    $post = getPostById($id);
 
     if (!$post) {
         http_response_code(404);
@@ -39,15 +39,15 @@ function postShow()
 }
 
 // Suppression d'un article
-function postDestroy()
+function postDestroy($id)
 {
-    if (empty($_GET['id'])) {
+    if (empty($id)) {
         http_response_code(400);
         require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
-    $deletedArticle =  deleteArticle($_GET['id']); 
+    $deletedArticle =  deleteArticle($id); 
     
 
     if (!$deletedArticle) {
@@ -103,15 +103,15 @@ function postStore()
 }
 
 // Affichage du formulaire de modification d'un article
-function postEdit()
+function postEdit($id)
 {
-    if (empty($_GET['id'])) {
+    if (empty($id)) {
         http_response_code(400);
         require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
 
-    $post = getPostById($_GET['id']);
+    $post = getPostById($id);
 
     if (!$post) {
         http_response_code(404);
@@ -123,7 +123,7 @@ function postEdit()
 }
 
 // Modication d'un article
-function postUpdate()
+function postUpdate($id)
 {
     if(empty($_POST['title']) || empty($_POST['body'])){
         if(empty($_POST['title'])){
@@ -133,18 +133,18 @@ function postUpdate()
             $_SESSION['messages'][] = 'Le champ contenu est obligatoire !';
         }
         $_SESSION['old_inputs'] = $_POST;
-        header('Location:/articles/edit?id='.$_GET['id']);
+        header('Location:/articles/edit?id='.$id);
         exit;
         }
     else{
-        $result = updateArticle($_GET['id'], $_POST);
+        $result = updateArticle($id, $_POST);
         if($result){
             $_SESSION['success'][] = 'Article mis à jour!';
         }
         else{
             $_SESSION['error'][] = 'Erreur lors de la mise à jour.';
         }
-       header('Location:/articles/show?id='.$_GET['id']);
+       header('Location:/articles/show/'.$id);
        exit;
     }
 }
