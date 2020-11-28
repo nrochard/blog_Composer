@@ -1,5 +1,9 @@
 <?php
 
+//Librairie Respect/Validation
+use Respect\Validation\Validator as v;
+use Respect\Validation\Exceptions\NestedValidationException;
+
 // Affichage de la page d'accueil et de 3 articles
 function blogIndex()
 {    

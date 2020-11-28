@@ -57,7 +57,10 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                <button type="button" class="btn btn-success"><a class="delete_article" href="/articles/delete?id=<?=$post->id?>">Confimer</a></button>
+                                <form method="POST" action="/articles/delete?id=<?=$post->id?>">
+                                    <input name="_method" type="hidden" value="DELETE" />
+                                    <button class="btn btn-success" type="submit">Confirmer</button>
+                                </form>
                             </div>
                             </div>
                         </div>
