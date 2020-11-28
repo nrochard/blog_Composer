@@ -15,7 +15,8 @@
         "respect/validation": "^2.1",
         "fzaninotto/faker": "^1.9",
         "robmorgan/phinx": "^0.12.4",
-        "erusev/parsedown": "^1.7"
+        "erusev/parsedown": "^1.7",
+        "hassankhan/config": "^2.1"
     },
     "scripts": {
         "serve" : "php -S 0.0.0.0:8088 -t public/"

@@ -18,6 +18,9 @@
                 <?php endif; ?>
 
                 <form  method="post" enctype="multipart/form-data" action="<?= isset($post) ? '/articles/edit?id='. $_GET['id'] : '/articles' ?>">
+                    <?php if(isset($post)) : ?>
+                        <input name="_method" type="hidden" value="PUT"/>
+                    <?php endif;?>
                     <div class="form-group">
                         <label for="title">Titre :</label>
                         <input type="text" class="form-control" name="title" id="title" value="<?= isset($_SESSION['old_inputs']) ? $_SESSION['old_inputs']['title'] : '' ?><?= isset($post) ? $post->title : ''?>">

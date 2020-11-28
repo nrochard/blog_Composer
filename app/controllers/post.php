@@ -2,7 +2,7 @@
 
 // Affichage de la page d'accueil et de 3 articles
 function blogIndex()
-{
+{    
     $posts = getAllPosts();
     view('posts/index.php', compact('posts'));
 }
@@ -86,7 +86,7 @@ function postStore()
     else{
         $resultAdd = storeArticle($_POST);
         if($resultAdd){
-            $_SESSION['success'][] = 'Article enregistré ! !';
+            $_SESSION['success'][] = 'Article enregistré !';
         }
         else{
             $_SESSION['error'][] = 'Erreur lors de l\'enregistrement.';
