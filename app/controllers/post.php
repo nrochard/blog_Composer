@@ -76,30 +76,58 @@ function postCreate()
 // Création d'un article
 function postStore()
 {
-    if(empty($_POST['title']) || empty($_POST['body'])){
-        if(empty($_POST['title'])){
-            $_SESSION['messages'][] = 'Le champ titre est obligatoire !';
-        }
-        else if(empty($_POST['created_at'])){
-            $_SESSION['messages'][] = 'Le champ contenu est obligatoire !';
-        }
+
+    //Gestion d'erreur avec Respect/Validation
+    $userValidator = v::attribute('title', v::stringType()->length(1, 255))
+        ->attribute('body', v::stringType()->length(3));
+
+    $post = (object) $_POST;
+
+    try {
+        $userValidator->assert($post);
+    } catch (NestedValidationException $exception) {
+        $_SESSION['messages'][] = 'Le champ titre et le champ contenu sont obligatoires !';
         $_SESSION['old_inputs'] = $_POST;
-        header('Location:/articles/create');
+        header('Location: /articles/create');
         exit;
+    }
+
+    $resultAdd = storeArticle($_POST);
+    if($resultAdd){
+        $_SESSION['success'][] = 'Article enregistré !';
     }
     else{
-        $resultAdd = storeArticle($_POST);
-        if($resultAdd){
-            $_SESSION['success'][] = 'Article enregistré !';
-        }
-        else{
-            $_SESSION['error'][] = 'Erreur lors de l\'enregistrement.';
-        }
-
-
-        header('Location:/articles');
-        exit;
+        $_SESSION['error'][] = 'Erreur lors de l\'enregistrement.';
     }
+
+    header('Location: /articles');
+    exit;
+
+    //Gestion d'erreur classique
+    // if(empty($_POST['title']) || empty($_POST['body'])){
+    //     if(empty($_POST['title'])){
+    //         $_SESSION['messages'][] = 'Le champ titre est obligatoire !';
+    //     }
+    //     else if(empty($_POST['created_at'])){
+    //         $_SESSION['messages'][] = 'Le champ contenu est obligatoire !';
+    //     }
+    //     $_SESSION['old_inputs'] = $_POST;
+    //     header('Location:/articles/create');
+    //     exit;
+    // }
+    // else{
+        // $resultAdd = storeArticle($_POST);
+        // if($resultAdd){
+        //     $_SESSION['success'][] = 'Article enregistré !';
+        // }
+        // else{
+        //     $_SESSION['error'][] = 'Erreur lors de l\'enregistrement.';
+        // }
+
+
+    //     header('Location:/articles');
+    //     exit;
+    // }
 }
 
 // Affichage du formulaire de modification d'un article
@@ -119,34 +147,61 @@ function postEdit($id)
         return;
     }
 
-    view('posts/form.php', compact('post'));
+    view('posts/form', compact('post'));
 }
 
 // Modication d'un article
 function postUpdate($id)
 {
-    if(empty($_POST['title']) || empty($_POST['body'])){
-        if(empty($_POST['title'])){
-             $_SESSION['messages'][] = 'Le champ titre est obligatoire !';
-        }
-        else if(empty($_POST['body'])){
-            $_SESSION['messages'][] = 'Le champ contenu est obligatoire !';
-        }
+    //Gestion d'erreur avec Respect/Validation
+    $userValidator = v::attribute('title', v::stringType()->length(1, 255))
+        ->attribute('body', v::stringType()->length(3));
+
+    $post = (object) $_POST;
+
+    try {
+        $userValidator->assert($post);
+    } catch (NestedValidationException $exception) {
+        $_SESSION['messages'][] = 'Le champ titre et le champ contenu sont obligatoires !';
         $_SESSION['old_inputs'] = $_POST;
-        header('Location:/articles/edit?id='.$id);
+        header('Location:/articles/edit/'.$id);
         exit;
-        }
-    else{
-        $result = updateArticle($id, $_POST);
-        if($result){
-            $_SESSION['success'][] = 'Article mis à jour!';
-        }
-        else{
-            $_SESSION['error'][] = 'Erreur lors de la mise à jour.';
-        }
-       header('Location:/articles/show/'.$id);
-       exit;
     }
+
+    $resultAdd = storeArticle($_POST);
+    if($resultAdd){
+        $_SESSION['success'][] = 'Article enregistré !';
+    }
+    else{
+        $_SESSION['error'][] = 'Erreur lors de l\'enregistrement.';
+    }
+
+    header('Location:/articles/show/'.$id);
+    exit;
+
+    //Gestion d'erreur classique
+    // if(empty($_POST['title']) || empty($_POST['body'])){
+    //     if(empty($_POST['title'])){
+    //          $_SESSION['messages'][] = 'Le champ titre est obligatoire !';
+    //     }
+    //     else if(empty($_POST['body'])){
+    //         $_SESSION['messages'][] = 'Le champ contenu est obligatoire !';
+    //     }
+    //     $_SESSION['old_inputs'] = $_POST;
+    //     header('Location:/articles/edit?id='.$id);
+    //     exit;
+    //     }
+    // else{
+    //     $result = updateArticle($id, $_POST);
+    //     if($result){
+    //         $_SESSION['success'][] = 'Article mis à jour!';
+    //     }
+    //     else{
+    //         $_SESSION['error'][] = 'Erreur lors de la mise à jour.';
+    //     }
+    //    header('Location:/articles/show/'.$id);
+    //    exit;
+    // }
 }
 
 // Ajouter d'un article généré aléatoirement
