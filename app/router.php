@@ -7,6 +7,7 @@ if (!empty($_POST['_method'])) {
     $_SERVER['REQUEST_METHOD'] = $_POST['_method'];
 }
 
+// Router avec Fast Route
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 

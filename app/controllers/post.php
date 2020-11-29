@@ -8,14 +8,14 @@ use Respect\Validation\Exceptions\NestedValidationException;
 function blogIndex()
 {    
     $posts = getAllPosts();
-    view('posts/index.php', compact('posts'));
+    view('posts/index', compact('posts'));
 }
 
 // Affichage de tout les articles
 function postIndex()
 {
     $posts = getAllPosts();
-    view('posts/posts.php', compact('posts'));
+    view('posts/posts', compact('posts'));
 }
 
 // Affichage d'un article
@@ -70,7 +70,7 @@ function postDestroy($id)
 // Affichage du formulaire de création d'un article
 function postCreate()
 {
-    require __DIR__ . "/../../views/posts/form.php";
+    view('posts/form');
 }
 
 // Création d'un article
