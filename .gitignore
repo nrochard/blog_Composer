@@ -4,6 +4,4 @@ composer.lock
 
 .env
 
-/db/migrations
-
 phinx.php

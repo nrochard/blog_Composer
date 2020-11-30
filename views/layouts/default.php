@@ -22,7 +22,8 @@
 
 <body>
         <?php echo $nav?>
-        <div class="container_content"><?php echo $content?>
+        <div class="container_content">
+            <?php echo $content?>
         </div>
         <?php echo $footer?>
 </body>
