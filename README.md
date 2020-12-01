@@ -10,6 +10,7 @@ In this blog you can :
 - Edit a post
 - Delete a post
 - Add a post
+- Generate an article 
 
 ## Installation
 
@@ -19,11 +20,26 @@ In this blog you can :
     $ composer install
     ```
     
-2. Create a .env and put your informations. You can help you with the .env.example.
+2. Create a .env and put your credentials. You can help you with the .env.example.
 
-3. Activate your MAMP/WAMP for the database.
+For the DB, you can :
 
-4. Export the /db/posts.sql in PhpMyAdmin
+1. Activate your MAMP/WAMP for the database.
+
+2. Export the /db/posts.sql in PhpMyAdmin
+
+OR : 
+
+1.  
+    ```bash
+    $ composer run migrate
+    ```
+
+2. 
+    ```bash
+    $ composer run seed
+    ```
+
 
 ## Start
 
