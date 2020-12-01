@@ -1,5 +1,4 @@
-<?php $title = "Tout les articles"?>
-<?php ob_start();?>
+<?php $this->layout('layouts/default', ['title' => 'Accueil | Blog']) ?>
 
        
 <div class="container">
@@ -126,11 +125,3 @@
         </div>
      </div>
  </div>
-
-<?php $content = ob_get_clean();?>
-
-<?php require __DIR__."/../layouts/nav.php"?>
-<?php require __DIR__."/../layouts/footer.php"?>
-<?php require __DIR__."/../layouts/default.php"?>
-
-

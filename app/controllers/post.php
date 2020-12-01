@@ -34,8 +34,7 @@ function postShow($id)
         require __DIR__ . "/../../views/layouts/400.html";
         return;
     }
-
-    require __DIR__ . "/../../views/posts/show.php";
+    view('posts/show', compact('post'));
 }
 
 // Suppression d'un article
