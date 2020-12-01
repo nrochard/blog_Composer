@@ -11,8 +11,7 @@
                 <?php
                 if(isset($_SESSION['messages'])): ?>
                     <div class="alert alert-danger mt-4" role="alert">
-                        <?php 
-                        foreach($_SESSION['messages'] as $message): ?>
+                        <?php foreach($_SESSION['messages'] as $message): ?>
                             <?= $message ?><br>
                         <?php endforeach; ?>
                     </div>

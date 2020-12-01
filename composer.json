@@ -20,7 +20,8 @@
     },
     "scripts": {
         "serve" : "php -S 0.0.0.0:8088 -t public/",
-        "init" : "vendor/bin/phinx migrate && vendor/bin/phinx seed:run"
+        "migrate" : "vendor/bin/phinx migrate",
+        "seed" : "vendor/bin/phinx seed:run"
     },
     "autoload": {
         "files": [
